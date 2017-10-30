@@ -1,0 +1,7 @@
+<h4>Calculator</h4>
+
+<div *ngFor="let buttons of calculatorButtons">
+  <app-calculator-button *ngFor="let button of buttons">
+    {{button}}
+  </app-calculator-button>
+</div>
