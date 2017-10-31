@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { PostService } from './post.service';
+import { Component, OnDestroy } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
@@ -6,8 +10,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Juan';
-  names = ['Juan', 'Eider', 'Brian', 'Brahian'];
 
-  show = !true;
+  post$: Observable<string>;
+
+  constructor(private postService: PostService) {
+    this.post$ = postService.getPosts();
+  }
 }
